@@ -45,13 +45,7 @@
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
       <form action="{% url 'logout' %}" method="POST">
-        {% if messages %}
-          <div class="messages">
-              {% for message in messages %}
-              <div{% if message.tags %} class="alert alert-sm alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
-              {% endfor %}
-          </div>
-          {% endif %}
+        
         {% csrf_token %}
 
           <input class="text text-capitalize" type="submit" value="Sign Out">
@@ -60,9 +54,12 @@
   </ul>
 </nav>
 
+
 <div class="container-fluid">
+ 
   <div class="row">
-    {% include "core/nav.html" %}
+    {% include "partials/nav.html" %}
+    
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
 
@@ -73,6 +70,7 @@
     </main>
   </div>
 </div>
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
       <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
       <script src="/docs/4.4/dist/js/bootstrap.bundle.min.js"></script>

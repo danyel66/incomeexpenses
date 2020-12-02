@@ -14,13 +14,7 @@
                         <h4>Login</h4>
                     </div>
                 <form action="" method="POST">
-                    {% if messages %}
-                        <div class="messages">
-                            {% for message in messages %}
-                            <div{% if message.tags %} class="alert alert-sm alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
-                            {% endfor %}
-                        </div>
-                        {% endif %}
+                    {% include "partials/messages.html" %}
                     {% csrf_token %}
                     <div class="form-group">
                         <input type="text" name="username" id="usernameField" class="form-control form-control-sm" placeholder="Username" value="{{fieldValue.username}}">
