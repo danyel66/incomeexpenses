@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 from django.contrib import messages
 
+import mimetypes
+mimetypes.add_type("text/css", ".css", True)
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -24,9 +27,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'o5=w_s^6#h&l5fipte@2*vro95w!75l+z**c*s-mve*+i&yq$y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core'
+    'core',
+    'expenses',
+    'userincome'
 ]
 
 MIDDLEWARE = [
